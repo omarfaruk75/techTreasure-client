@@ -1,77 +1,22 @@
-// import { BiSolidDownvote, BiSolidUpvote } from 'react-icons/bi';
-// import SectionTitle from '../../components/SectionTitle/SectionTitle';
-// import ProductReview from './ProductReview';
-// import PostReview from './PostReview';
-// import { useLoaderData } from 'react-router-dom';
-
-// const ProductDetails = () => {
-//     const product = useLoaderData()
-//     const { image, productName, productDetails, tagsItem, voteCount, _id } = product;
-//     return (
-//         <div>
-//             <div className='  rounded-md  md:min-h-[350px] '>
-//                 <div >
-//                     <img className="object-center object-cover w-full h-[80vh] " src={image} alt="avatar" />
-//                 </div>
-
-//                 <h1 className='mt-12  text-2xl font-medium text-gray-800  '>
-//                     <span className="text-lg"> {productName}</span>:
-//                 </h1>
-
-//                 <p className='mt-2  text-sm text-gray-600 '>
-//                     <span className="font-bold "> Description: {productDetails}</span>
-//                 </p>
-
-//                 <div className=" mt-6 ">
-//                     <h3 className="text-xl pb-4">Tags:</h3>
-//                     <ul className="flex flex-row justify-start items-center gap-6 text-lg">
-//                         {tagsItem && tagsItem.map((tag, index) => (
-//                             <li key={index}>{tag}</li>
-//                         ))}
-//                     </ul>
-//                 </div>
-
-//                 <div className="flex flex-row gap-8 mt-12 item-center">
-
-//                     <div className='flex flex-row gap-4 items-center'>
-//                         <span>{voteCount}</span>
-//                         <button className="px-4 py-3 text-lg font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"><BiSolidUpvote /></button>
-//                     </div>
-//                     <div className='flex flex-row gap-4 items-center'>
-//                         <span>0</span>
-//                         <button className="px-4 py-3 text-lg font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"><BiSolidDownvote /></button>
-//                     </div>
-//                 </div>
-
-
-
-//             </div>
-//             <div>
-//                 <SectionTitle heading={'Product Reviews'} subHeading={'Reviews'} />
-//                 <ProductReview productName={productName} />
-//                 <SectionTitle heading={'Add Reviews'} subHeading={'post Review'} />
-//                 <PostReview />
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default ProductDetails;
-
-
 import { BiSolidDownvote, BiSolidUpvote } from 'react-icons/bi';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import PostReview from './PostReview';
 import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosCommon from "../../hooks/useAxiosCommon";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css';
+import toast from 'react-hot-toast';
+import { useEffect, useState } from 'react';
+import { GoReport } from "react-icons/go";
 
 const ProductDetails = () => {
     const { id } = useParams();
     const axiosCommon = useAxiosCommon();
+    const [isReported, setIsReported] = useState(false);
+    const queryClient = useQueryClient();
+
 
     const { data, isLoading, error } = useQuery({
         queryKey: ['product-details-with-reviews', id],
@@ -81,6 +26,41 @@ const ProductDetails = () => {
         }
     });
 
+
+    useEffect(() => {
+        const fetchReportStatus = async () => {
+            try {
+                const response = await axiosCommon.get(`/report-status/${id}`);
+                if (response.data.status === 'reported') {
+                    setIsReported(true);
+                }
+            } catch (error) {
+                console.error('Error fetching report status:', error);
+            }
+        };
+
+        fetchReportStatus();
+    }, [id, axiosCommon]);
+
+    const reportMutation = useMutation({
+        mutationFn: async () => {
+            await axiosCommon.post(`/report/${id}`);
+        },
+        onSuccess: () => {
+            setIsReported(true);
+            toast.success('Product reported successfully!');
+            // Optionally refetch the data if necessary
+            queryClient.invalidateQueries(['product-details-with-reviews', id]);
+        },
+        onError: (error) => {
+            console.error('Error reporting product:', error);
+            toast.error('Error reporting product. Please try again later.');
+        }
+    });
+
+    const handleReport = async () => {
+        reportMutation.mutate();
+    };
     if (isLoading) return <LoadingSpinner />;
     if (error) return <p>Error loading data</p>;
 
@@ -125,6 +105,9 @@ const ProductDetails = () => {
                             <BiSolidDownvote />
                         </button>
                     </div>
+                    <button className='px-4 py-3 text-lg font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600' onClick={handleReport} disabled={isReported}>
+                        {isReported ? 'Reported' : <GoReport />}
+                    </button>
                 </div>
             </div>
 
