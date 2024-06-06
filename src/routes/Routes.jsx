@@ -16,6 +16,8 @@ import ManageCoupon from "../pages/Dashboard/AdminDashboard/ManageCoupon";
 import ProductReviewQueue from "../pages/Dashboard/ModeratorDashboard/ProductReviewQueue";
 import ReportedContentPage from "../pages/Dashboard/ModeratorDashboard/ReportedContentPage";
 import UpdateProducts from "../pages/Dashboard/UserDashboard/UpdateProducts";
+import PostReview from "../pages/ProductDetails/PostReview";
+import ProductReview from "../pages/ProductDetails/ProductReview";
 
 export const router = createBrowserRouter([
     {
@@ -31,12 +33,15 @@ export const router = createBrowserRouter([
                 path: "products",
                 element: <Products />
             }
+
             ,
             {
-                // path: "product/:id",
-                path: "productDetails",
-                element: <ProductDetails />
-            }
+                path: "productDetails/:id",
+                element: <ProductDetails />,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/product-details/${params.id}`)
+            },
+
+
         ]
     },
     {
@@ -90,9 +95,8 @@ export const router = createBrowserRouter([
                 path: 'product/:id',
                 element: <UpdateProducts />,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/product/${params.id}`)
-
-
             }
+
         ]
     }
 ]);

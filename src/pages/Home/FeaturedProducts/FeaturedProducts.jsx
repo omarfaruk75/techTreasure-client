@@ -72,7 +72,7 @@ const FeaturedProducts = () => {
                         <div key={product._id} className="flex w-1/2 md:w-[48%] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
                             <div className="w-1/2 bg-cover" style={{ backgroundImage: `url(${product.image})` }}></div>
                             <div className="w-1/2 p-4 md:p-4">
-                                <Link to={`/product/${product._id}`} className="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" tabIndex="0" role="link">
+                                <Link to={`/productDetails/${product._id}`} className="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" tabIndex="0" role="link">
                                     {product.productName}
                                 </Link>
                                 <span className="mt-1 text-base text-gray-600 dark:text-gray-300">{new Date(product.timestamp).toLocaleString()}</span>
@@ -104,6 +104,7 @@ const FeaturedProducts = () => {
                                         >
                                             <BiSolidDownvote />
                                         </button>
+                                        <span>0</span>
                                         {/* <span>{productVote.voteCount}</span> */}
                                     </div>
                                 </div>
