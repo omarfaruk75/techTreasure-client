@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 
 const ProductDataRow = ({ product, refetch }) => {
     const axiosSecure = useAxiosSecure();
-    // const [isOpen, setIsOpen] = useState(false);
     const [isAcceptDisabled, setIsAcceptDisabled] = useState(false);
     const [isRejectDisabled, setIsRejectDisabled] = useState(false);
 
@@ -30,7 +29,6 @@ const ProductDataRow = ({ product, refetch }) => {
         onSuccess: data => {
             console.log(data);
             toast.success('Product Status Updated Successfully');
-            // setIsOpen(false);
             refetch();
         }
     });
@@ -67,7 +65,7 @@ const ProductDataRow = ({ product, refetch }) => {
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                 {product?.status ? (
-                    <p className={`${product.status === 'Accepted' ? 'text-green-500' : 'text-yellow-500'} whitespace-no-wrap`}>
+                    <p className={`${product.status === 'Accepted' ? 'text-yellow-600' : 'text-green-800'} whitespace-no-wrap`}>
                         {product.status}
                     </p>
                 ) : (
@@ -79,7 +77,7 @@ const ProductDataRow = ({ product, refetch }) => {
                 <button
                     onClick={handleAccept}
                     disabled={isAcceptDisabled}
-                    className={`relative inline-block px-3 py-1 font-semibold leading-tight ${isAcceptDisabled ? 'cursor-not-allowed text-gray-500 bg-gray-200' : 'cursor-pointer text-green-900 bg-green-200'}`}
+                    className={`relative inline-block px-3 py-1 font-semibold leading-tight ${isAcceptDisabled ? 'cursor-not-allowed text-gray-500 bg-gray-200' : 'cursor-pointer text-green-900 bg-green-400'}`}
                 >
                     <span aria-hidden='true' className='absolute inset-0 opacity-50 rounded-full'></span>
                     <span className='relative'>Accept</span>
@@ -87,7 +85,7 @@ const ProductDataRow = ({ product, refetch }) => {
                 <button
                     onClick={handleReject}
                     disabled={isRejectDisabled}
-                    className={`relative inline-block px-3 py-1 font-semibold leading-tight ${isRejectDisabled ? 'cursor-not-allowed text-gray-500 bg-gray-200' : 'cursor-pointer text-red-900 bg-red-200'}`}
+                    className={`relative inline-block px-3 py-1 font-semibold leading-tight ${isRejectDisabled ? 'cursor-not-allowed  text-red-900  bg-gray-200' : 'cursor-pointer text-gray-500 bg-red-200'}`}
                 >
                     <span aria-hidden='true' className='absolute inset-0 opacity-50 rounded-full'></span>
                     <span className='relative'>Reject</span>

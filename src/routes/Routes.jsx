@@ -14,10 +14,10 @@ import Profile from "../pages/Dashboard/Profile";
 import DashboardLayout from "../layout/DashboardLayout";
 import ManageCoupon from "../pages/Dashboard/AdminDashboard/ManageCoupon";
 import ProductReviewQueue from "../pages/Dashboard/ModeratorDashboard/ProductReviewQueue";
-import ReportedContentPage from "../pages/Dashboard/ModeratorDashboard/ReportedContentPage";
 import UpdateProducts from "../pages/Dashboard/UserDashboard/UpdateProducts";
 import PostReview from "../pages/ProductDetails/PostReview";
 import ProductReview from "../pages/ProductDetails/ProductReview";
+import ReportedProduct from "../pages/Dashboard/ModeratorDashboard/ReportedProduct";
 
 export const router = createBrowserRouter([
     {
@@ -84,7 +84,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'reported-content',
-                element: <ReportedContentPage />
+                element: <ReportedProduct />
             },
             {
                 path: 'profile',
