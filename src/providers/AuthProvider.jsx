@@ -22,7 +22,7 @@ const googleProvider = new GoogleAuthProvider()
 
 const AuthProvider = ({ children }) => {
     const axiosCommon = useAxiosCommon();
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState({})
     const [loading, setLoading] = useState(true)
 
     const createUser = (email, password) => {
@@ -60,11 +60,12 @@ const AuthProvider = ({ children }) => {
     //save user 
     const saveUser = async user => {
         const currentUser = {
+            name: user?.displayName,
             email: user?.email,
             role: 'user',
-            status: 'Verified'
         }
         const { data } = await axiosCommon.put(`/user`, currentUser)
+        console.log('currentUser', currentUser);
         return data;
     }
     // Get token from server
@@ -79,12 +80,13 @@ const AuthProvider = ({ children }) => {
     //onAuthStateChange
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
+
             if (currentUser) {
                 getToken(currentUser.email)
                 saveUser(currentUser);
             }
             setLoading(false)
+            setUser(currentUser)
         })
         return () => {
             return unsubscribe()

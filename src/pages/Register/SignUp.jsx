@@ -66,12 +66,12 @@ const SignUp = () => {
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
-                    <p className='text-sm text-gray-400'>Welcome to StayVista</p>
+                    <p className='text-sm text-gray-400'>Welcome to Tech Treasure</p>
                 </div>
                 <form onSubmit={handleSubmit} className='space-y-6'>
                     <div className='space-y-4'>
                         <div>
-                            <label htmlFor='email' className='block mb-2 text-sm'>
+                            <label htmlFor='name' className='block mb-2 text-sm'>
                                 Name
                             </label>
                             <input
@@ -80,7 +80,7 @@ const SignUp = () => {
                                 id='name'
                                 placeholder='Enter Your Name Here'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
-                                data-temp-mail-org='0'
+
                             />
                         </div>
                         <div>
@@ -165,7 +165,6 @@ const SignUp = () => {
                     >
                         Login
                     </Link>
-                    .
                 </p>
             </div>
         </div>
