@@ -45,7 +45,15 @@ const Navbar = () => {
                                     {menuItem}
                                 </ul>
                             </div>
-                            <a className="btn btn-ghost text-xl">Tech Treasure</a>
+                            <Link to='/' >
+                                <img
+                                    // className='hidden md:block'
+                                    src='https://i.ibb.co/K0GZfFK/Group-21.png'
+                                    alt='logo'
+                                    width='100'
+                                    height='100'
+                                />
+                            </Link>
                         </div>
                         <div className="navbar-center hidden lg:flex ">
                             <ul className="menu menu-horizontal px-1 ">

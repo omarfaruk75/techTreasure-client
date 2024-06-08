@@ -1,5 +1,4 @@
 
-
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -118,5 +117,4 @@ const FeaturedProducts = () => {
 };
 
 export default FeaturedProducts;
-
 

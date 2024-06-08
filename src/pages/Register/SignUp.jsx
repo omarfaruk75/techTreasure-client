@@ -53,7 +53,6 @@ const SignUp = () => {
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle()
-
             navigate('/')
             toast.success('Signup Successful')
         } catch (err) {

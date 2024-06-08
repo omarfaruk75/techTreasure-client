@@ -4,9 +4,9 @@ import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import useAxiosCommon from "../../../hooks/useAxiosCommon";
 import { useQuery } from "@tanstack/react-query";
+
+
 const TrendingProducts = () => {
-
-
     const axiosCommon = useAxiosCommon();
     const { data: products = [] } = useQuery({
         queryKey: ['products'],

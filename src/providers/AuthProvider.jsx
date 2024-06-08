@@ -57,39 +57,39 @@ const AuthProvider = ({ children }) => {
         })
     }
 
-    // //save user 
-    // const saveUser = async user => {
-    //     const currentUser = {
-    //         email: user?.email,
-    //         role: 'user',
-    //         status: 'Verified'
-    //     }
-    //     const { data } = await axiosCommon.put(`/user`, currentUser)
-    //     return data;
-    // }
-    // // Get token from server
-    // const getToken = async email => {
-    //     const { data } = await axiosCommon.post(`/jwt`,
-    //         { email },
-    //         { withCredentials: true }
-    //     )
-    //     return data
-    // }
+    //save user 
+    const saveUser = async user => {
+        const currentUser = {
+            email: user?.email,
+            role: 'user',
+            status: 'Verified'
+        }
+        const { data } = await axiosCommon.put(`/user`, currentUser)
+        return data;
+    }
+    // Get token from server
+    const getToken = async email => {
+        const { data } = await axiosCommon.post(`/jwt`,
+            { email },
+            { withCredentials: true }
+        )
+        return data
+    }
 
-    // onAuthStateChange
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-    //         setUser(currentUser)
-    //         if (currentUser) {
-    //             getToken(currentUser.email)
-    //             saveUser(currentUser);
-    //         }
-    //         setLoading(false)
-    //     })
-    //     return () => {
-    //         return unsubscribe()
-    //     }
-    // }, [])
+    //onAuthStateChange
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+            if (currentUser) {
+                getToken(currentUser.email)
+                saveUser(currentUser);
+            }
+            setLoading(false)
+        })
+        return () => {
+            return unsubscribe()
+        }
+    }, [])
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
