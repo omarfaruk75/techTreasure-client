@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+
 
 const Slide = ({ image, text2, textp }) => {
     return (
@@ -8,7 +8,7 @@ const Slide = ({ image, text2, textp }) => {
                 backgroundImage: `url(${image})`,
             }}
         >
-            <div className='flex items-center justify-start w-full h-full bg-gray-900/70'>
+            <div className='flex items-center justify-start w-full h-full bg-gray-900/50'>
 
                 <div className="text-white w-5/12 space-y-7 pl-16 ">
                     <h2 className="text-6xl text-white font-bold">{text2}</h2>

@@ -171,11 +171,9 @@ const ProductDataRow = ({ product, refetch }) => {
         }
     };
 
-
-    const handleFeatureToggle = async () => {
+    const handleFeature = async () => {
         try {
-            const newRole = isFeatured ? 'featured' : 'unfeatured';
-            await updateProductRole(newRole);
+            await updateProductRole('featured');
         } catch (err) {
             toast.error(err.message);
         }
@@ -191,11 +189,13 @@ const ProductDataRow = ({ product, refetch }) => {
             </td>
             <td>
                 <button
-                    onClick={handleFeatureToggle}
-                    className={`relative inline-block px-3 py-1 font-semibold leading-tight ${isFeatured ? 'cursor-pointer text-blue-900 bg-blue-200' : 'cursor-pointer text-gray-500 bg-gray-200'}`}
+                    onClick={handleFeature}
+                    disabled={isFeatured}
+                    className={`relative inline-block px-3 py-1 font-semibold leading-tight ${isFeatured ? 'cursor-not-allowed text-blue-900 bg-gray-200' : 'cursor-pointer text-gray-500 bg-blue-200'}`}
                 >
                     <span aria-hidden='true' className='absolute inset-0 opacity-50 rounded-full'></span>
-                    <span className='relative'>{isFeatured ? 'Featured' : 'Unfeature'}</span>
+                    <span className='relative'>Featured</span>
+
                 </button>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm space-x-6'>

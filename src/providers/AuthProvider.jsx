@@ -63,10 +63,13 @@ const AuthProvider = ({ children }) => {
             name: user?.displayName,
             email: user?.email,
             role: 'user',
-        }
-        const { data } = await axiosCommon.put(`/user`, currentUser)
+            status: 'Verified'
 
-        return data;
+        }
+        // console.log(user, currentUser);
+        // const { data } = await axiosCommon.put(`/user`, currentUser)
+
+        // return data;
     }
     // Get token from server
     const getToken = async email => {

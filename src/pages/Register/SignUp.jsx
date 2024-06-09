@@ -4,8 +4,10 @@ import useAuth from '../../hooks/useAuth'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { TbFidgetSpinner } from 'react-icons/tb'
+import useAxiosCommon from '../../hooks/useAxiosCommon'
 
 const SignUp = () => {
+    const axiosCommon = useAxiosCommon();
     const navigate = useNavigate()
     const {
         createUser,
@@ -41,6 +43,16 @@ const SignUp = () => {
 
             // 3. Save username and photo in firebase
             await updateUserProfile(name, data.data.display_url)
+            const currentUser1 = {
+                name: name,
+                email: email,
+                role: 'user',
+                status: 'Verified'
+
+            }
+            // console.log(user, currentUser);
+            const { data: data1 } = await axiosCommon.put(`/user`, currentUser1)
+
             navigate('/')
             toast.success('Signup Successful')
         } catch (err) {

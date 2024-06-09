@@ -54,7 +54,8 @@ const FeaturedProducts = () => {
         }
     };
     //latest sorting
-    const sortedProducts = products.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    const featuredProducts = products.filter(product => product.role === 'featured')
+    const sortedProducts = featuredProducts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     if (isLoading) return <LoadingSpinner />;
 
     return (

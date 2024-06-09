@@ -10,10 +10,6 @@ import 'swiper/css/navigation'
 import { Autoplay, Pagination } from 'swiper/modules'
 import Slide from './Slide'
 
-import bgimg1 from '../../../assets/banner/1.jpg'
-import bgimg2 from '../../../assets/banner/2.jpg'
-import bgimg3 from '../../../assets/banner/3.jpg'
-
 export default function Banner() {
     return (
         <div>
@@ -34,26 +30,26 @@ export default function Banner() {
             >
                 <SwiperSlide>
                     <Slide
-                        image={bgimg1}
+                        image={'https://i.ibb.co/CWXFSTJ/1-1.jpg'}
 
-                        text2='Affordable Price For Car Servicing'
-                        textp='There are many variations of passages of  available, but the majority have suffered alteration in some form'
+                        text2='Revolutionary AI Tools for the Modern Age'
+                        textp='Discover the power of artificial intelligence with our cutting-edge tools designed to streamline your workflow and enhance productivity.'
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <Slide
-                        image={bgimg2}
+                        image={'https://i.ibb.co/7YRN7yq/2.jpg'}
 
-                        text2='Affordable Price For Car Servicing'
-                        textp='There are many variations of passages of  available, but the majority have suffered alteration in some form'
+                        text2='Innovative Mobile Apps for Every Need'
+                        textp='Explore our wide range of mobile applications tailored to meet your personal and professional demands, available for both Android and iOS.'
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <Slide
-                        image={bgimg3}
+                        image={'https://i.ibb.co/cwhFmZF/3.jpg'}
 
-                        text2='Affordable Price For Car Servicing'
-                        textp='There are many variations of passages of  available, but the majority have suffered alteration in some form'
+                        text2='Versatile Software Solutions and Engaging Games'
+                        textp='From business applications to entertaining games, find the perfect software solutions to boost your efficiency and enjoyment.'
                     />
                 </SwiperSlide>
             </Swiper>
