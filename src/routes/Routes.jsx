@@ -4,7 +4,7 @@ import NotFound from "../components/NotFound";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/SignIn/Login";
 import SignUp from "../pages/Register/SignUp"
-import Products from "../pages/Products/FeaturedProductCard";
+import Products from "../pages/Products/ProductPage";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import AddProducts from "../pages/Dashboard/UserDashboard/AddProducts";
 import Statistics from "../pages/Dashboard/AdminDashboard/Statistics";
@@ -18,6 +18,8 @@ import UpdateProducts from "../pages/Dashboard/UserDashboard/UpdateProducts";
 import PostReview from "../pages/ProductDetails/PostReview";
 import ProductReview from "../pages/ProductDetails/ProductReview";
 import ReportedProduct from "../pages/Dashboard/ModeratorDashboard/ReportedProduct";
+import Payment from "../pages/Dashboard/AdminDashboard/Payment/Payment";
+import ProductPage from "../pages/Products/ProductPage";
 
 export const router = createBrowserRouter([
     {
@@ -31,7 +33,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "products",
-                element: <Products />
+                element: <ProductPage />
             }
 
             ,
@@ -89,6 +91,11 @@ export const router = createBrowserRouter([
             {
                 path: 'profile',
                 element: <Profile />
+            }
+            ,
+            {
+                path: 'payment',
+                element: <Payment />
             }
             ,
             {

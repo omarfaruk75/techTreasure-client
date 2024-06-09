@@ -30,7 +30,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="static  w-full z-20 h-16 mb-2">
+        <div className="static  w-full z-20 h-16 mb-6">
             <Container>
                 <div className=' text-black shadow-lg shadow-slate-300 rounded-2xl '>
                     <div className="navbar  rounded-xl  z-30 ">
