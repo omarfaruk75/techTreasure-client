@@ -33,7 +33,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: "products",
-                element: <ProductPage />
+                element: <ProductPage />,
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/productsCount`)
             }
 
             ,

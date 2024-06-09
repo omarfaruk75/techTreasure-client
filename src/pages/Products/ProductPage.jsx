@@ -1,14 +1,25 @@
 
 import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosCommon from "../../hooks/useAxiosCommon";
+
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import { useEffect, useState } from "react";
+import useAxiosCommon from "../../hooks/useAxiosCommon";
 const ProductPage = () => {
     const [search, setSearch] = useState('')
     const [productItem, setProductItem] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(10); // Use useState(10) instead of just (10)
+
     const axiosCommon = useAxiosCommon();
+    const { count } = useLoaderData();
+    console.log({ count });
+    // const prodcutPerPage = 6;
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+
+    const pages = [...Array(numberOfPages).keys()]
+    console.log(pages);
 
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products'],
@@ -18,10 +29,7 @@ const ProductPage = () => {
         }
     });
 
-    // console.log(products);
-    //latest sorting
-    // const productAccepted = products.filter(product => product.status === 'Accepted')
-    // console.log(productAccepted);
+
 
     const productAccepted = products
         .filter(product => product.status === 'Accepted')
@@ -45,12 +53,38 @@ const ProductPage = () => {
         }
         getData()
     }, [search, axiosCommon])
+    useEffect(() => {
+        const getData = async () => {
+            const { data } = axiosCommon.get(`/product?page=${currentPage}&size=${itemsPerPage}`);
+            setProductItem(data);
+        }
+        getData()
+    }, [currentPage, itemsPerPage])
 
     const handleSearch = async (e) => {
         e.preventDefault();
         const text = e.target.search.value;
         console.log(text);
         setSearch(text);
+    }
+
+    const handleItemsPerPage = e => {
+        const val = parseInt(e.target.value);
+        console.log(val);
+        setItemsPerPage(val);
+        setCurrentPage(0);
+    }
+
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1);
+        }
     }
 
 
@@ -102,6 +136,25 @@ const ProductPage = () => {
                     </div>
                 ))}
 
+            </div>
+            <div className="flex flex-row justify-center">
+                <div className='pagination space-x-6'>
+                    <p>Current page: {currentPage}</p>
+                    <button onClick={handlePrevPage}>Prev</button>
+                    {
+                        pages.map(page => <button
+                            className={currentPage === page ? 'selected' : undefined}
+                            onClick={() => setCurrentPage(page)}
+                            key={page}
+                        >{page}</button>)
+                    }
+                    <button onClick={handleNextPage}>Next</button>
+                    <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+                        <option value="5">6</option>
+                        <option value="10">12</option>
+
+                    </select>
+                </div>
             </div>
         </div>
     )
