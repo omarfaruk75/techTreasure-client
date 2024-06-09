@@ -9,7 +9,7 @@ import UpdateUserModal from '../Modal/UpdateUserModal';
 const UsersRowData = ({ user, refetch }) => {
     const axiosSecure = useAxiosSecure();
     const [isOpen, setIsOpen] = useState(false);
-
+    console.log(user);
     const { mutateAsync } = useMutation({
         mutationFn: async role => {
             const { data } = await axiosSecure.patch(`/users/update/${user?.email}`, role)
@@ -41,7 +41,7 @@ const UsersRowData = ({ user, refetch }) => {
     return (
         <tr>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <p className='text-gray-900 whitespace-no-wrap'>{user?.displayName}</p>
+                <p className='text-gray-900 whitespace-no-wrap'>{user?.name}</p>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                 <p className='text-gray-900 whitespace-no-wrap'>{user?.email}</p>
