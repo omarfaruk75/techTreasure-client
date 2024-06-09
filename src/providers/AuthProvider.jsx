@@ -65,7 +65,7 @@ const AuthProvider = ({ children }) => {
             role: 'user',
         }
         const { data } = await axiosCommon.put(`/user`, currentUser)
-        console.log('currentUser', currentUser);
+
         return data;
     }
     // Get token from server
@@ -99,7 +99,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 // get token and store client
                 const userInfo = { email: currentUser.email };
-                axiosCommon.post(`${import.meta.env.VITE_API_URL}/jwt`, userInfo)
+                axiosCommon.post(`/jwt`, userInfo)
                     .then(res => {
                         if (res.data.token) {
                             localStorage.setItem('access-token', res.data.token);

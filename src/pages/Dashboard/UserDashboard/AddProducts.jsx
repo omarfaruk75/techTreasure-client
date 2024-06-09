@@ -44,6 +44,7 @@ const AddProducts = () => {
                 websiteLink: data.link,
                 image: res.data.data.display_url,
                 status: 'pending',
+                role: 'unfeatured',
                 productOwner: {
                     email: user?.email,
                     name: user?.displayName,
