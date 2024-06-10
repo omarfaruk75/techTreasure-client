@@ -53,38 +53,6 @@ const ProductPage = () => {
         getData()
     }, [search, axiosCommon])
 
-    // useEffect(() => {
-    //     const getData = async () => {
-    //         const { data } = axiosCommon.get(`/product?page=${currentPage}&size=${itemsPerPage}`);
-    //         setProductItem(data);
-    //     }
-    //     getData()
-    // }, [currentPage, itemsPerPage])
-
-    // const handleSearch = async (e) => {
-    //     e.preventDefault();
-    //     const text = e.target.search.value;
-    //     console.log(text);
-    //     setSearch(text);
-    // }
-
-    // const handleItemsPerPage = e => {
-    //     const val = parseInt(e.target.value);
-    //     setItemsPerPage(val);
-    //     setCurrentPage(0);
-    // }
-
-    // const handlePrevPage = () => {
-    //     if (currentPage > 0) {
-    //         setCurrentPage(currentPage - 1);
-    //     }
-    // }
-
-    // const handleNextPage = () => {
-    //     if (currentPage < pages.length - 1) {
-    //         setCurrentPage(currentPage + 1);
-    //     }
-    // }
 
     useEffect(() => {
         const getData = async () => {
