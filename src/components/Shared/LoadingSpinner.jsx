@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { ScaleLoader } from 'react-spinners'
+import { ClockLoader } from 'react-spinners'
 
 const LoadingSpinner = () => {
     return (
@@ -10,7 +10,7 @@ const LoadingSpinner = () => {
       justify-center 
       items-center "
         >
-            <ScaleLoader size={100} color='red' />
+            <ClockLoader size={100} color='red' />
         </div>
     )
 }
