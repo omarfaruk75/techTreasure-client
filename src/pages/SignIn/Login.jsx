@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth'
 import toast from 'react-hot-toast'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { useState } from 'react'
+import { ImSpinner3 } from "react-icons/im";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -60,10 +61,10 @@ const Login = () => {
 
     return (
         <div className='flex justify-center items-center min-h-screen'>
-            <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+            <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-[#e1e2fa] text-gray-900'>
                 <div className='mb-8 text-center'>
-                    <h1 className='my-3 text-4xl font-bold'>Log In</h1>
-                    <p className='text-sm text-gray-400'>
+                    <h1 className='my-3 text-4xl font-semibold'>Log In</h1>
+                    <p className='text-sm text-black'>
                         Sign in to access your account
                     </p>
                 </div>
@@ -109,10 +110,10 @@ const Login = () => {
                         <button
                             disabled={loading}
                             type='submit'
-                            className='bg-rose-500 w-full rounded-md py-3 text-white'
+                            className='bg-[#6369e8] w-full rounded-md py-3 text-white'
                         >
                             {loading ? (
-                                <TbFidgetSpinner className='animate-spin m-auto' />
+                                <ImSpinner3 className='animate-spin m-auto' />
                             ) : (
                                 'Sign In'
                             )}
@@ -145,11 +146,11 @@ const Login = () => {
                     <p>Continue with Google</p>
                 </button>
 
-                <p className='px-6 text-sm text-center text-gray-400'>
+                <p className='px-6 text-sm text-center text-black'>
                     Don&apos;t have an account yet?{' '}
                     <Link
                         to='/register'
-                        className='hover:underline hover:text-rose-500 text-gray-600'
+                        className='hover:underline hover:text-rose-500 text-black'
                     >
                         Sign up
                     </Link>

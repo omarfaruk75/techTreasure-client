@@ -3,7 +3,7 @@ import { FcGoogle } from 'react-icons/fc'
 import useAuth from '../../hooks/useAuth'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { TbFidgetSpinner } from 'react-icons/tb'
+import { ImSpinner3 } from "react-icons/im";
 import useAxiosCommon from '../../hooks/useAxiosCommon'
 
 const SignUp = () => {
@@ -74,11 +74,11 @@ const SignUp = () => {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-screen'>
-            <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
-                <div className='mb-8 text-center'>
-                    <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
-                    <p className='text-sm text-gray-400'>Welcome to Tech Treasure</p>
+        <div className='flex justify-center items-center min-h-screen '>
+            <div className='flex flex-col w-[500px]  rounded-md sm:p-10 bg-[#e1e2fa] text-black'>
+                <div className='mb-2 text-center'>
+                    <h1 className='my-1 text-3xl font-semibold'>Sign Up</h1>
+                    <p className='text-sm text-black'>Welcome to Tech Treasure</p>
                 </div>
                 <form onSubmit={handleSubmit} className='space-y-6'>
                     <div className='space-y-4'>
@@ -143,10 +143,10 @@ const SignUp = () => {
                         <button
                             disabled={loading}
                             type='submit'
-                            className='bg-rose-500 w-full rounded-md py-3 text-white'
+                            className='bg-[#6369e8] w-full rounded-md py-3 text-white'
                         >
                             {loading ? (
-                                <TbFidgetSpinner className='animate-spin m-auto' />
+                                <ImSpinner3 className='animate-spin m-auto' />
                             ) : (
                                 'Continue'
                             )}
@@ -169,7 +169,7 @@ const SignUp = () => {
 
                     <p>Continue with Google</p>
                 </button>
-                <p className='px-6 text-sm text-center text-gray-400'>
+                <p className='px-6 text-sm text-center text-black'>
                     Already have an account?{' '}
                     <Link
                         to='/login'

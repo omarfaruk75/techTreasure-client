@@ -1,5 +1,5 @@
 
-import { FaUtensils } from "react-icons/fa";
+import { FaAd, FaUtensils } from "react-icons/fa";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
@@ -129,7 +129,7 @@ const AddProducts = () => {
                             <div className="label">
                                 <span className="label-text">Product ImageURL</span>
                             </div>
-                            <input type="file" {...register("image", { required: true })} className="file-input  file-input-bordered file-input-secondary w-full max-w-xs" />
+                            <input type="file" {...register("image", { required: true })} className="file-input  file-input-bordered file-input-secondary bg-[#e1e2fa]  w-full max-w-xs" />
 
                         </label>
                         <div>
@@ -139,7 +139,7 @@ const AddProducts = () => {
                             <div className="label">
                                 <span className="label-text">Website Link</span>
                             </div>
-                            <input type="text" {...register("link", { required: true })} className="file-input file-input-bordered file-input-secondary w-full max-w-xs" />
+                            <input type="text" {...register("link", { required: true })} className="file-input file-input-bordered file-input-secondary bg-[#e1e2fa]  w-full max-w-xs" />
 
                         </label>
                     </div>
@@ -149,17 +149,17 @@ const AddProducts = () => {
                     <div className="flex flex-row justify-stretch items-center gap-16">
 
                         <div>
-                            <input type="text" {...register("name", { required: true })} readOnly defaultValue={user?.displayName} className="file-input file-input-bordered file-input-secondary w-full max-w-xs" />
+                            <input type="text" {...register("name", { required: true })} readOnly defaultValue={user?.displayName} className="file-input file-input-bordered bg-[#e1e2fa]  file-input-secondary w-full max-w-xs" />
                         </div>
                         <div>
-                            <input type="email" {...register("email", { required: true })} readOnly defaultValue={user?.email} className="file-input file-input-bordered file-input-secondary w-full max-w-xs" />
+                            <input type="email" {...register("email", { required: true })} readOnly defaultValue={user?.email} className="file-input file-input-bordered bg-[#e1e2fa]  file-input-secondary w-full max-w-xs" />
                         </div>
                         <div>
-                            <input type="text" {...register("photo", { required: true })} readOnly defaultValue={user?.photoURL} className="file-input file-input-bordered file-input-secondary w-full max-w-xs" />
+                            <input type="text" {...register("photo", { required: true })} readOnly defaultValue={user?.photoURL} className="file-input file-input-bordered bg-[#e1e2fa]  file-input-secondary w-full max-w-xs" />
                         </div>
 
                     </div>
-                    <button className="btn text-white bg-secondary w-full">Add Product<FaUtensils /></button>
+                    <button className="btn text-black font-semibold bg-[#e1e2fa] w-full"><FaAd />Add Product</button>
                 </form>
             </div >
 

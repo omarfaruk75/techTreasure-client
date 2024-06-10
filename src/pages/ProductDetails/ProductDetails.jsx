@@ -71,16 +71,16 @@ const ProductDetails = () => {
     return (
         <div>
             <div className='rounded-md md:min-h-[350px]'>
-                <div>
-                    <img className="object-center object-cover w-full h-[80vh]" src={image} alt={productName} />
+                <div className='w-[20%] mx-auto'>
+                    <img className="object-center object-cover " src={image} alt={productName} />
                 </div>
 
                 <h1 className='mt-12 text-2xl font-medium text-gray-800'>
                     <span className="text-lg">{productName}</span>:
                 </h1>
 
-                <p className='mt-2 text-sm text-gray-600'>
-                    <span className="font-bold">Description: {productDetails}</span>
+                <p className='mt-2 text-sm text-[#3b2f2f]'>
+                    <span className="font-normal"><b>Description:</b> {productDetails}</span>
                 </p>
 
                 <div className="mt-6">

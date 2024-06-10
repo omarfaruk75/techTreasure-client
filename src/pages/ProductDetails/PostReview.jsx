@@ -67,7 +67,7 @@ const PostReview = ({ productName }) => {
                     </div>
 
                     <div className="flex justify-center mt-6">
-                        <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-green-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-green-600">Submit</button>
+                        <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#6369e8] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-green-600">Submit</button>
                     </div>
                 </form>
             </section>

@@ -1,19 +1,20 @@
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-white dark:bg-gray-900 px-14">
+            <footer className="bg-[#e1e2fa] text-black px-14">
                 <div className="container p-6 mx-auto">
                     <div className="lg:flex">
                         <div className="w-full -mx-6 lg:w-2/5">
                             <div className="px-6">
-                                {/* <a href="#">
-                                    <img className="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="" />
-                                </a> */}
-                                <h2 className="text-2xl font-semibold">Tech Treasure</h2>
+                                <Link href="#">
+                                    <img className="w-auto h-12 text-white" src='https://i.ibb.co/K0GZfFK/Group-21.png' alt="" />
+                                </Link>
 
-                                <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
+
+                                <p className="max-w-sm mt-2 text-black">Visit Our Tech Treasure to discover your product </p>
 
                                 <div className="flex mt-6 -mx-2">
 
@@ -45,23 +46,22 @@ const Footer = () => {
                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                                 <div>
                                     <h3 className="text-gray-700 uppercase dark:text-white">About</h3>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Company</a>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">community</a>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Careers</a>
+                                    <Link to={'/'} className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Company</Link>
+                                    <Link to={'/'} className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Careers</Link>
                                 </div>
 
                                 <div>
                                     <h3 className="text-gray-700 uppercase dark:text-white">Blog</h3>
                                     <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Tec</a>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Music</a>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Videos</a>
+                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Product</a>
+                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Games</a>
                                 </div>
 
                                 <div>
                                     <h3 className="text-gray-700 uppercase dark:text-white">Products</h3>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Mega cloud</a>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Aperion UI</a>
-                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Meraki UI</a>
+                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Application</a>
+                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Games</a>
+                                    <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Tech Treasure</a>
                                 </div>
 
                                 <div>

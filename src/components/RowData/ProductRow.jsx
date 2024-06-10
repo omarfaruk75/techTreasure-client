@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import DeleteModal from '../Modal/DeleteModal';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaEdit } from 'react-icons/fa';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const ProductRow = ({ product, handleDelete, index }) => {
 
@@ -23,7 +23,7 @@ const ProductRow = ({ product, handleDelete, index }) => {
                 <p className='text-gray-900 whitespace-no-wrap'>{product?.productName}</p>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <p className='text-gray-900 whitespace-no-wrap'>{product?.vote}</p>
+                <p className='text-gray-900 whitespace-no-wrap'>{product?.voteCount}</p>
             </td>
 
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -32,17 +32,17 @@ const ProductRow = ({ product, handleDelete, index }) => {
 
 
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <button onClick={() => setIsOpen(true)} className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
+                <button onClick={() => setIsOpen(true)} className='relative cursor-pointer inline-block px-3 py-1 font-semibold  leading-tight rounded-xl  bg-orange-500 text-white text-2xl '>
                     <span
                         aria-hidden='true'
-                        className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
+                        className='absolute  '
                     ></span>
-                    <span className='relative'>Delete</span>
+                    <span className='relative '><FaTrash /></span>
                 </button>
                 <DeleteModal closeModal={closeModal} isOpen={isOpen} handleDelete={handleDelete} id={product?._id} />
             </td>
             <td>
-                <Link to={`/dashboard/product/${product._id}`} className="btn bg-orange-500 btn-sm text-white text-2xl"><FaEdit /></Link>
+                <Link to={`/dashboard/product/${product._id}`} className="btn bg-orange-500  px-3 py-1 font-semibold btn-sm text-white text-2xl"><FaEdit /></Link>
             </td>
 
         </tr >

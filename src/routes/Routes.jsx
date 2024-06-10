@@ -20,6 +20,7 @@ import ProductReview from "../pages/ProductDetails/ProductReview";
 import ReportedProduct from "../pages/Dashboard/ModeratorDashboard/ReportedProduct";
 import Payment from "../pages/Dashboard/AdminDashboard/Payment/Payment";
 import ProductPage from "../pages/Products/ProductPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
             ,
             {
                 path: "productDetails/:id",
-                element: <ProductDetails />,
+                element: <PrivateRoute><ProductDetails /></PrivateRoute>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/product-details/${params.id}`)
             },
 
@@ -58,7 +59,7 @@ export const router = createBrowserRouter([
 
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
 
             {
