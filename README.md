@@ -2,14 +2,13 @@ Live Link: https://techtreasure12-8bdab.web.app
 
 ### Project Overview
 
-This website has an authentication process by using Firebase and for frontend design HTML, CSS, Tailwindcss, Javascript, and React are used. For Backend Development express.js and mongoDB are used. I think this is an ideal for crafted and antique crafted product lovers.
+This website has an authentication process by using Firebase and for frontend design HTML, CSS, Tailwindcss, Javascript, and React are used. For Backend Development express.js and mongoDB are used. I think this is an ideal website for developers like as games, software, AI developers etc.
 
 ### Features
- - Personalized beauty and grooming services
- - Skilled professionals ensuring high-quality treatments
- - Relaxing environment for clients
- - Stringent hygiene practices and safety measures
- - Trusted choice for diverse beauty needs
+ - There is an option for introducing new software like  games, software, ai tools, google tools etc.
+ - The software has a chance to be sold and introduced with tech giant
+ - Testing their concept and getting idea about software
+
 
 ### Technology
  - HTML5
@@ -18,6 +17,7 @@ This website has an authentication process by using Firebase and for frontend de
  - React
  - Firebase
  - MongoDB
+ - 
 ### Clone The Project Procedure:
  - git clone https://github.com/omarfaruk75/techTreasure-client.git
  - cd project file
